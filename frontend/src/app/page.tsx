@@ -1,12 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 
-interface ImageAttributes {
-    id: number;
-    name: string;
-    url: string;
-}
-
 interface CharacterAttributes {
     id: number;
     name: string;
@@ -15,7 +9,6 @@ interface CharacterAttributes {
     role: string;
     rank: string;
     abilities: string[];
-    image: ImageAttributes;
 }
 
 type CharacterData = CharacterAttributes[];
@@ -41,20 +34,13 @@ export default function Home() {
                         <p>{character.desc}</p>
                         <p><strong>Division:</strong> {character.division}</p>
                         <p><strong>Role:</strong> {character.role}</p>
-                        <p><strong>Rank:</strong> {character.rank}</p>
-                        <p><strong>Abilities:</strong></p>
+                        <p><strong>Rang:</strong> {character.rank}</p>
+                        <p><strong>Capacités:</strong></p>
                         <ul>
                             {character.abilities.map((ability, index) => (
                                 <li key={index}>{ability}</li>
                             ))}
                         </ul>
-                        {character.image && (
-                            <img
-                                src={"http://localhost:1337" + character.image.url}
-                                alt={character.image.name}
-                                className="w-48 h-48 object-cover"
-                            />
-                        )}
                     </div>
                 ))}
             </main>
